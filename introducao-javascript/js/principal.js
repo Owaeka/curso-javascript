@@ -10,18 +10,15 @@ for(var contador=0; contador < pacientes.length; contador++){
     var altura = paciente.querySelector(".info-altura").textContent;
     var trImc = paciente.querySelector(".info-imc");
 
-    var alturaEhValida = validaaltura(altura);
     var pesoEhValido = validaPeso(peso);
+    var alturaEhValida = validaAltura(altura);
 
-
-    if(!validaPeso){
+    if(!pesoEhValido){
         trImc.textContent = "Peso Inválido";
-        pesoEhValido = false;
         paciente.classList.add("paciente-invalido");
     }
-    if(!validaAltura){
+    if(!alturaEhValida){
         trImc.textContent = "Altura Inválida!";
-        alturaEhValida = false;
         paciente.classList.add("paciente-invalido");
     }
     if(alturaEhValida && pesoEhValido){

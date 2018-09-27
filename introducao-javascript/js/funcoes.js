@@ -1,9 +1,9 @@
 function calculaImc(peso, altura) {
 
-    if(peso <= 0 || peso >= 800){
+    if(!validaPeso(peso)){
         return "Peso Invalido!";
     }
-    if(altura <= 0 || altura >= 3){
+    if(!validaAltura(altura)){
         return "Altura Inválida!";
     }
 
@@ -44,15 +44,38 @@ function montaTd(dado, classe){
 }
 
 function validaPeso(peso) {
-    if(peso <=0 || peso >=800){
-        return true;
-    }
-    return false;
+    if(peso <= 0 || peso >= 800) return false;
+
+    else return true;
 }
 
 function validaAltura(altura) {
-    if(altura <=0 || altura >=3.0){
-        return true;
-    }
-    return false;
+    if(altura <= 0 || altura >= 3.0) return false;
+
+    else return true;
+}
+
+
+function validaPaciente(paciente){
+    erros = [];
+
+    if(paciente.nome.length == 0) erros.push("Nome não pode ser branco");
+    if(paciente.altura.length == 0) erros.push("Altura não pode ser em branco");
+    if(paciente.gordura.length == 0) erros.push("Gordura não pode ser em branco");
+    if(paciente.peso.length == 0) erros.push("Peso não pode ser em branco");
+
+    if(!validaPeso(paciente.peso)) erros.push("Peso inválido");
+    if(!validaAltura(paciente.altura)) erros.push("Altura inválida");
+
+    return erros;
+}
+
+function msgErro(mensagens) {
+    var ul = document.querySelector("#mensagens-erro");
+
+    mensagens.forEach(mensagem => {
+        var li = document.createElement("li");
+        li.textContent = mensagem;
+        ul.appendChild(li);
+    });
 }
