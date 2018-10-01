@@ -1,1 +1,1 @@
-# curso-javascript
+Curso de JavaScript do Alura
