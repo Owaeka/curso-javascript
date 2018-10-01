@@ -1,3 +1,5 @@
+
+
 function calculaImc(peso, altura) {
 
     if(!validaPeso(peso)){
@@ -78,4 +80,14 @@ function msgErro(mensagens) {
         li.textContent = mensagem;
         ul.appendChild(li);
     });
+}
+
+
+function adicionaPacienteNaTabela(paciente) {
+    //Monta a TR do paciente
+    var pacienteTr = montaTr(paciente);
+    //Seleciona a tabela para inserir
+    var tabela = document.querySelector("#tabela-pacientes");
+    //Insere as tags trs com as tds
+    tabela.appendChild(pacienteTr);
 }

@@ -13,18 +13,12 @@ botaoAdicionar.addEventListener("click", function(event){
     console.log(paciente.peso);
     //Se não tiver erros, executa a inseração do paciente
     if(validacao.length == 0){
-        //Monta a TR do paciente
-        var pacienteTr = montaTr(paciente);
-        //Seleciona a tabela para inserir
-        var tabela = document.querySelector("#tabela-pacientes");
-        //Insere as tags trs com as tds
-        tabela.appendChild(pacienteTr);
-
-   form.reset();
+        //Adiciona o paciente na tabela
+        adicionaPacienteNaTabela(paciente);
+        form.reset();
     } else{ //Caso tenha algum erro, exibe mensagem de verificação
         msgErro(validacao);
     }
     
 
 });
-
